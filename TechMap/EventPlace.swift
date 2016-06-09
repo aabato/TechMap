@@ -43,6 +43,7 @@ class EventPlace {
         let time_temp = json["time"].doubleValue
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        dateFormatter.dateStyle = .MediumStyle
         let date = NSDate(timeIntervalSince1970: time_temp)
         time = dateFormatter.stringFromDate(date)
     
