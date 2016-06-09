@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import GoogleMaps
 
 //Global
 var googleMapsAPIKey:String!
 var meetupAPIKey:String!
+let meetupsAPIBaseURL = "http://api.meetup.com/2/open_events"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

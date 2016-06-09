@@ -15,7 +15,6 @@
 		BD7920D41D08F494006B4020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7920D31D08F494006B4020 /* Assets.xcassets */; };
 		BD7920D71D08F494006B4020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7920D51D08F494006B4020 /* LaunchScreen.storyboard */; };
 		BD7920E01D08F824006B4020 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7920DF1D08F824006B4020 /* Keys.plist */; };
-		BDB7771C1D0995CC0085E853 /* Meetups.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB7771B1D0995CC0085E853 /* Meetups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		BD7920D81D08F494006B4020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD7920DF1D08F824006B4020 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		BDB777121D098B640085E853 /* TechMap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TechMap-Bridging-Header.h"; sourceTree = "<group>"; };
-		BDB7771B1D0995CC0085E853 /* Meetups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meetups.swift; sourceTree = "<group>"; };
 		FB98989194433C3331C8A603 /* Pods-TechMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-TechMap/Pods-TechMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +86,6 @@
 		BDB777171D0994D10085E853 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BDB7771B1D0995CC0085E853 /* Meetups.swift */,
 				BD4B95041D099E560019B9F4 /* LocationStore.swift */,
 			);
 			name = Model;
@@ -255,7 +252,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD4B95051D099E560019B9F4 /* LocationStore.swift in Sources */,
-				BDB7771C1D0995CC0085E853 /* Meetups.swift in Sources */,
 				BD7920CF1D08F494006B4020 /* ViewController.swift in Sources */,
 				BD7920CD1D08F494006B4020 /* AppDelegate.swift in Sources */,
 			);

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import GoogleMaps
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -56,6 +57,26 @@ class ViewController: UIViewController {
         print("Latitude: \(self.latitude). Longitude: \(self.longitude)")
         
         mapView.camera = GMSCameraPosition(target: self.location.coordinate , zoom: 15.0, bearing: 0, viewingAngle: 0)
+        
+        self.getMeetupInfo(forCurrentLocation: location) { (response) in
+            self.meetupsInCurrentLocation = response
+            print(self.meetupsInCurrentLocation)
+        }
+        
+    }
+    
+    func getMeetupInfo(forCurrentLocation location:CLLocation, completion:([[String:String]]) -> Void) -> Void {
+        
+        let urlString = "\(meetupsAPIBaseURL)?key=\(meetupAPIKey)&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&category=34&sign=true"
+        
+        Alamofire.request(.GET, urlString)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    print("JSON results: \(JSON["results"])")
+                    
+                }
+        }
         
     }
 
