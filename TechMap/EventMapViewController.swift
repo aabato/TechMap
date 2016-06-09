@@ -11,7 +11,7 @@ import MapKit
 import GoogleMaps
 import Alamofire
 
-class ViewController: UIViewController, GMSMapViewDelegate {
+class EventMapViewController: UIViewController, GMSMapViewDelegate {
     
     var meetupsInCurrentLocation:[EventPlace] = []
     var dataStore:LocationStore!
@@ -44,7 +44,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         
         mapView.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EventMapViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
         
     }
 
@@ -114,6 +114,11 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         print("Tap Tap")
         mapView.selectedMarker = marker
         return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destVC = segue.destinationViewController as! EventTableViewController
+        destVC.events = self.meetupsInCurrentLocation
     }
     
     
