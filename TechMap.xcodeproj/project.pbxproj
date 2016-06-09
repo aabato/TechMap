@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64E2C50ABE3C0508A3627DFC /* Pods_TechMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A1C7E292E42700C726CA9 /* Pods_TechMap.framework */; };
+		BD4B95051D099E560019B9F4 /* LocationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B95041D099E560019B9F4 /* LocationStore.swift */; };
 		BD7920CD1D08F494006B4020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7920CC1D08F494006B4020 /* AppDelegate.swift */; };
 		BD7920CF1D08F494006B4020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7920CE1D08F494006B4020 /* ViewController.swift */; };
 		BD7920D21D08F494006B4020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7920D01D08F494006B4020 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		A622CA1D0D31D63D10A16576 /* Pods-TechMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TechMap/Pods-TechMap.debug.xcconfig"; sourceTree = "<group>"; };
 		B23A1C7E292E42700C726CA9 /* Pods_TechMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4B95041D099E560019B9F4 /* LocationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStore.swift; sourceTree = "<group>"; };
 		BD7920C91D08F494006B4020 /* TechMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7920CC1D08F494006B4020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD7920CE1D08F494006B4020 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB7771B1D0995CC0085E853 /* Meetups.swift */,
+				BD4B95041D099E560019B9F4 /* LocationStore.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4B95051D099E560019B9F4 /* LocationStore.swift in Sources */,
 				BDB7771C1D0995CC0085E853 /* Meetups.swift in Sources */,
 				BD7920CF1D08F494006B4020 /* ViewController.swift in Sources */,
 				BD7920CD1D08F494006B4020 /* AppDelegate.swift in Sources */,
