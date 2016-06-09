@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
     
     var meetupsInCurrentLocation = []
 
+    var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView=MKMapView()
+        view.addSubview(mapView)
         
-        
-        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        mapView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+        mapView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
+        mapView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
+    
     }
 
     override func didReceiveMemoryWarning() {
