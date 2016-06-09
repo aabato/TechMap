@@ -63,6 +63,10 @@ class ViewController: UIViewController {
                 let event = EventPlace(dictionary: dict)
                 self.meetupsInCurrentLocation.append(event)
             }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                self.updateMap()
+            })
         }
     }
     
@@ -76,6 +80,13 @@ class ViewController: UIViewController {
                     let results = JSON["results"] as! [[String:AnyObject]]
                     completion(results)
                 }
+        }
+    }
+    
+    func updateMap() {
+        for event:EventPlace in self.meetupsInCurrentLocation {
+            let marker = GMSMarker(position: event.coordinate)
+            marker.map = self.mapView
         }
     }
     
