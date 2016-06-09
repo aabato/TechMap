@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class Placemarker: GMSMarker {
     
@@ -15,6 +16,9 @@ class Placemarker: GMSMarker {
     init(place: EventPlace) {
         self.eventplace = place
         super.init()
+        
+        position = place.coordinate
+        groundAnchor = CGPoint(x:0.5, y:1)
     }
 
 }

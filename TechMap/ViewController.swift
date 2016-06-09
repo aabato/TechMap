@@ -29,6 +29,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         mapView=GMSMapView()
         view.addSubview(mapView)
         
+        
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
         mapView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
@@ -40,6 +41,8 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         
         dataStore = LocationStore()
         dataStore.getLocation()
+        
+        mapView.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
         
@@ -86,18 +89,33 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     func updateMap() {
         for event:EventPlace in self.meetupsInCurrentLocation {
             let marker = Placemarker(place: event)
-            marker.postion = event.coordinate
+            marker.position = event.coordinate
             marker.map = self.mapView
+            marker.infoWindowAnchor = CGPointMake(0.44, 0.45)
         }
+        
     }
     
-    func mapView(mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
-        
+    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        print("Calling delegate method now")
         let placemarker = marker as! Placemarker
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
+            infoView.nameLabel.text = placemarker.eventplace.name
+            infoView.groupLabel.text = placemarker.eventplace.groupName
+            infoView.dateLabel.text = placemarker.eventplace.time
             
+            return infoView
         }
+        
+        return nil
     }
+    
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        print("Tap Tap")
+        mapView.selectedMarker = marker
+        return true
+    }
+    
     
     
     

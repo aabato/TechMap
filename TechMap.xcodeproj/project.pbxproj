@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64E2C50ABE3C0508A3627DFC /* Pods_TechMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A1C7E292E42700C726CA9 /* Pods_TechMap.framework */; };
+		BD4B7C411D09FDA9006AF3C4 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B7C401D09FDA9006AF3C4 /* UIViewExtension.swift */; };
 		BD4B95051D099E560019B9F4 /* LocationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B95041D099E560019B9F4 /* LocationStore.swift */; };
 		BD4B95071D09DBE60019B9F4 /* EventPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B95061D09DBE60019B9F4 /* EventPlace.swift */; };
 		BD4B950E1D09F6850019B9F4 /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4B950B1D09F6850019B9F4 /* MarkerInfoView.xib */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		A622CA1D0D31D63D10A16576 /* Pods-TechMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TechMap/Pods-TechMap.debug.xcconfig"; sourceTree = "<group>"; };
 		B23A1C7E292E42700C726CA9 /* Pods_TechMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4B7C401D09FDA9006AF3C4 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BD4B95041D099E560019B9F4 /* LocationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStore.swift; sourceTree = "<group>"; };
 		BD4B95061D09DBE60019B9F4 /* EventPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPlace.swift; sourceTree = "<group>"; };
 		BD4B950B1D09F6850019B9F4 /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				BD7920D01D08F494006B4020 /* Main.storyboard */,
 				BD7920D31D08F494006B4020 /* Assets.xcassets */,
 				BD7920D51D08F494006B4020 /* LaunchScreen.storyboard */,
+				BD4B7C401D09FDA9006AF3C4 /* UIViewExtension.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				BD4B95051D099E560019B9F4 /* LocationStore.swift in Sources */,
 				BD7920CF1D08F494006B4020 /* ViewController.swift in Sources */,
 				BD4B95131D09FAE50019B9F4 /* Placemarker.swift in Sources */,
+				BD4B7C411D09FDA9006AF3C4 /* UIViewExtension.swift in Sources */,
 				BD4B95071D09DBE60019B9F4 /* EventPlace.swift in Sources */,
 				BD7920CD1D08F494006B4020 /* AppDelegate.swift in Sources */,
 			);
