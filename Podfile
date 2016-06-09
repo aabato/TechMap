@@ -5,5 +5,7 @@ use_frameworks!
 
 target 'TechMap' do
 	pod 'Alamofire', '~> 3.4'
+	pod 'GoogleMaps'
+	pod 'SwiftyJSON', '~> 2.3'
 end
 
