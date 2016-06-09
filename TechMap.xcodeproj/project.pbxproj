@@ -10,6 +10,9 @@
 		64E2C50ABE3C0508A3627DFC /* Pods_TechMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A1C7E292E42700C726CA9 /* Pods_TechMap.framework */; };
 		BD4B95051D099E560019B9F4 /* LocationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B95041D099E560019B9F4 /* LocationStore.swift */; };
 		BD4B95071D09DBE60019B9F4 /* EventPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B95061D09DBE60019B9F4 /* EventPlace.swift */; };
+		BD4B950E1D09F6850019B9F4 /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4B950B1D09F6850019B9F4 /* MarkerInfoView.xib */; };
+		BD4B95111D09F7A70019B9F4 /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B95101D09F7A70019B9F4 /* MarkerInfoView.swift */; };
+		BD4B95131D09FAE50019B9F4 /* Placemarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B95121D09FAE50019B9F4 /* Placemarker.swift */; };
 		BD7920CD1D08F494006B4020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7920CC1D08F494006B4020 /* AppDelegate.swift */; };
 		BD7920CF1D08F494006B4020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7920CE1D08F494006B4020 /* ViewController.swift */; };
 		BD7920D21D08F494006B4020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7920D01D08F494006B4020 /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 		B23A1C7E292E42700C726CA9 /* Pods_TechMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4B95041D099E560019B9F4 /* LocationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStore.swift; sourceTree = "<group>"; };
 		BD4B95061D09DBE60019B9F4 /* EventPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPlace.swift; sourceTree = "<group>"; };
+		BD4B950B1D09F6850019B9F4 /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
+		BD4B95101D09F7A70019B9F4 /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
+		BD4B95121D09FAE50019B9F4 /* Placemarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placemarker.swift; sourceTree = "<group>"; };
 		BD7920C91D08F494006B4020 /* TechMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7920CC1D08F494006B4020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD7920CE1D08F494006B4020 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 			children = (
 				BD4B95041D099E560019B9F4 /* LocationStore.swift */,
 				BD4B95061D09DBE60019B9F4 /* EventPlace.swift */,
+				BD4B95121D09FAE50019B9F4 /* Placemarker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -97,6 +104,8 @@
 		BDB777181D0994D60085E853 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD4B950B1D09F6850019B9F4 /* MarkerInfoView.xib */,
+				BD4B95101D09F7A70019B9F4 /* MarkerInfoView.swift */,
 				BD7920D01D08F494006B4020 /* Main.storyboard */,
 				BD7920D31D08F494006B4020 /* Assets.xcassets */,
 				BD7920D51D08F494006B4020 /* LaunchScreen.storyboard */,
@@ -194,6 +203,7 @@
 			files = (
 				BD7920E01D08F824006B4020 /* Keys.plist in Resources */,
 				BD7920D71D08F494006B4020 /* LaunchScreen.storyboard in Resources */,
+				BD4B950E1D09F6850019B9F4 /* MarkerInfoView.xib in Resources */,
 				BD7920D41D08F494006B4020 /* Assets.xcassets in Resources */,
 				BD7920D21D08F494006B4020 /* Main.storyboard in Resources */,
 			);
@@ -254,8 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4B95111D09F7A70019B9F4 /* MarkerInfoView.swift in Sources */,
 				BD4B95051D099E560019B9F4 /* LocationStore.swift in Sources */,
 				BD7920CF1D08F494006B4020 /* ViewController.swift in Sources */,
+				BD4B95131D09FAE50019B9F4 /* Placemarker.swift in Sources */,
 				BD4B95071D09DBE60019B9F4 /* EventPlace.swift in Sources */,
 				BD7920CD1D08F494006B4020 /* AppDelegate.swift in Sources */,
 			);

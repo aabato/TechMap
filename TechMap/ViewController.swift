@@ -11,7 +11,7 @@ import MapKit
 import GoogleMaps
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GMSMapViewDelegate {
     
     var meetupsInCurrentLocation:[EventPlace] = []
     var dataStore:LocationStore!
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     
     func getMeetupInfo(forCurrentLocation location:CLLocation, completion:([[String:AnyObject]]) -> Void) -> Void {
         
-        let urlString = "\(meetupsAPIBaseURL)?key=\(meetupAPIKey)&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&category=34&sign=true"
+        let urlString = "\(meetupsAPIBaseURL)?key=\(meetupAPIKey)&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&radius=2&category=34&sign=true"
         
         Alamofire.request(.GET, urlString)
             .responseJSON { response in
@@ -85,8 +85,17 @@ class ViewController: UIViewController {
     
     func updateMap() {
         for event:EventPlace in self.meetupsInCurrentLocation {
-            let marker = GMSMarker(position: event.coordinate)
+            let marker = Placemarker(place: event)
+            marker.postion = event.coordinate
             marker.map = self.mapView
+        }
+    }
+    
+    func mapView(mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
+        
+        let placemarker = marker as! Placemarker
+        if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
+            
         }
     }
     
