@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Global
 var googleMapsAPIKey:String!
 var meetupAPIKey:String!
 

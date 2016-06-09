@@ -75,16 +75,48 @@
 			isa = PBXGroup;
 			children = (
 				BD7920CC1D08F494006B4020 /* AppDelegate.swift */,
-				BD7920CE1D08F494006B4020 /* ViewController.swift */,
+				BDB777171D0994D10085E853 /* Model */,
+				BDB777181D0994D60085E853 /* Views */,
+				BDB777191D0994F90085E853 /* Controllers */,
+				BDB7771A1D09950A0085E853 /* Supporting Files */,
+			);
+			path = TechMap;
+			sourceTree = "<group>";
+		};
+		BDB777171D0994D10085E853 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				BD7920E11D08FF3D006B4020 /* Meetups.swift */,
-				BDB777121D098B640085E853 /* TechMap-Bridging-Header.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BDB777181D0994D60085E853 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				BD7920D01D08F494006B4020 /* Main.storyboard */,
 				BD7920D31D08F494006B4020 /* Assets.xcassets */,
 				BD7920D51D08F494006B4020 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BDB777191D0994F90085E853 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD7920CE1D08F494006B4020 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BDB7771A1D09950A0085E853 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BDB777121D098B640085E853 /* TechMap-Bridging-Header.h */,
 				BD7920D81D08F494006B4020 /* Info.plist */,
 				BD7920DF1D08F824006B4020 /* Keys.plist */,
 			);
-			path = TechMap;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D25BF6207E75B27162AF4AAD /* Pods */ = {
