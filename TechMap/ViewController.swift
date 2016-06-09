@@ -59,14 +59,11 @@ class ViewController: UIViewController {
         mapView.camera = GMSCameraPosition(target: self.location.coordinate , zoom: 15.0, bearing: 0, viewingAngle: 0)
         
         self.getMeetupInfo(forCurrentLocation: location) { (response) in
-            
             for dict in response {
-                self.meetupsInCurrentLocation.append(EventPlace(dictionary: dict))
+                let event = EventPlace(dictionary: dict)
+                self.meetupsInCurrentLocation.append(event)
             }
-            
-            print("RESULTS: \(self.meetupsInCurrentLocation)")
         }
-        
     }
     
     func getMeetupInfo(forCurrentLocation location:CLLocation, completion:([[String:AnyObject]]) -> Void) -> Void {
@@ -80,8 +77,9 @@ class ViewController: UIViewController {
                     completion(results)
                 }
         }
-        
     }
-
+    
+    
+    
 }
 

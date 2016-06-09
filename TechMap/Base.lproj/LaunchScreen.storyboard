@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,32 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="QUR-1W-7AU">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QUR-1W-7AU" secondAttribute="height" multiplier="1:1" id="81V-pb-CYa"/>
+                                    <constraint firstAttribute="width" constant="250" id="U1U-0L-5nB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tech Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h94-SV-DEz">
+                                <rect key="frame" x="0.0" y="98" width="600" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="H7k-FK-gel"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="51"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7893965423" green="0.7893965423" blue="0.7893965423" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QUR-1W-7AU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="VF2-WP-alL"/>
+                            <constraint firstItem="h94-SV-DEz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Vuf-ID-BNU"/>
+                            <constraint firstItem="QUR-1W-7AU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dIE-lI-ryK"/>
+                            <constraint firstItem="h94-SV-DEz" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="lWq-lU-6Fz"/>
+                            <constraint firstItem="QUR-1W-7AU" firstAttribute="top" secondItem="h94-SV-DEz" secondAttribute="bottom" constant="27" id="uOr-c8-Wxj"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +50,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="map" width="512" height="512"/>
+    </resources>
 </document>
