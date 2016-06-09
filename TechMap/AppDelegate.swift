@@ -8,14 +8,28 @@
 
 import UIKit
 
+var googleMapsAPIKey:String!
+var meetupAPIKey:String!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var keys: NSDictionary?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        
+        if let dict = keys {
+            googleMapsAPIKey = dict["GoogleMapsAPIKey"] as! String
+            meetupAPIKey = dict["MeetupAPIKey"] as! String
+        }
+        
+        GMSServices.provideAPIKey(googleMapsAPIKey)
+        
         return true
     }
 

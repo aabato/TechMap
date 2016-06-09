@@ -29,6 +29,7 @@
 		BD7920D81D08F494006B4020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD7920DF1D08F824006B4020 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		BD7920E11D08FF3D006B4020 /* Meetups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meetups.swift; sourceTree = "<group>"; };
+		BDB777121D098B640085E853 /* TechMap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TechMap-Bridging-Header.h"; sourceTree = "<group>"; };
 		FB98989194433C3331C8A603 /* Pods-TechMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-TechMap/Pods-TechMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +77,7 @@
 				BD7920CC1D08F494006B4020 /* AppDelegate.swift */,
 				BD7920CE1D08F494006B4020 /* ViewController.swift */,
 				BD7920E11D08FF3D006B4020 /* Meetups.swift */,
+				BDB777121D098B640085E853 /* TechMap-Bridging-Header.h */,
 				BD7920D01D08F494006B4020 /* Main.storyboard */,
 				BD7920D31D08F494006B4020 /* Assets.xcassets */,
 				BD7920D51D08F494006B4020 /* LaunchScreen.storyboard */,
@@ -333,10 +335,13 @@
 			baseConfigurationReference = A622CA1D0D31D63D10A16576 /* Pods-TechMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TechMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.TechMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TechMap/TechMap-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -345,10 +350,12 @@
 			baseConfigurationReference = FB98989194433C3331C8A603 /* Pods-TechMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TechMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.angelicabato.TechMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TechMap/TechMap-Bridging-Header.h";
 			};
 			name = Release;
 		};
