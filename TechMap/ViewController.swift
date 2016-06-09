@@ -8,19 +8,24 @@
 
 import UIKit
 import MapKit
+import GoogleMaps
 
 class ViewController: UIViewController {
     
     var meetupsInCurrentLocation = []
     var dataStore:LocationStore!
     
-    var mapView: MKMapView!
+    var latitude:Double!
+    var longitude:Double!
+    var location:CLLocation!
+    
+    var mapView: GMSMapView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView=MKMapView()
+        mapView=GMSMapView()
         view.addSubview(mapView)
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,10 +34,13 @@ class ViewController: UIViewController {
         mapView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
         mapView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
         
+        mapView.myLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        
         dataStore = LocationStore()
         dataStore.getLocation()
         
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
         
     }
 
@@ -40,7 +48,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func updateLocationInfo() {
+        latitude = self.dataStore.latitude
+        longitude = self.dataStore.longitude
+        location = CLLocation(latitude: self.latitude, longitude: self.longitude);
+        print("Latitude: \(self.latitude). Longitude: \(self.longitude)")
+        
+        mapView.camera = GMSCameraPosition(target: self.location.coordinate , zoom: 15.0, bearing: 0, viewingAngle: 0)
+        
+    }
 
 }
 

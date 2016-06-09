@@ -13,16 +13,16 @@ class LocationStore: NSObject, CLLocationManagerDelegate {
 
     var locationManager:CLLocationManager!
     var currentLocation:CLLocation!
-    var latitude:NSString!
-    var longitude:NSString!
+    var latitude:Double!
+    var longitude:Double!
     
     static let sharedDataStore = LocationStore()
     
     override init() {
         locationManager = CLLocationManager()
         currentLocation = CLLocation()
-        latitude = NSString()
-        longitude = NSString()
+        latitude = Double()
+        longitude = Double()
     }
     
     func getLocation() {
@@ -33,7 +33,6 @@ class LocationStore: NSObject, CLLocationManagerDelegate {
             self.locationManager.requestWhenInUseAuthorization()
             if (self.locationManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization))) {
                 self.locationManager.requestWhenInUseAuthorization()
-                print("request for auth made")
             }
             locationManager.startUpdatingLocation()
         }
@@ -46,9 +45,11 @@ class LocationStore: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         self.currentLocation = locations.last
-        self.latitude = String(format:"%f",self.currentLocation.coordinate.latitude)
-        self.longitude = String(format:"%f",self.currentLocation.coordinate.longitude)
+        self.latitude = self.currentLocation.coordinate.latitude
+        self.longitude = self.currentLocation.coordinate.longitude
         self.locationManager.stopUpdatingLocation()
+        
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "locationInfoComplete", object: nil))
         
     }
     
