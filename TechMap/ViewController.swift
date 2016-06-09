@@ -13,7 +13,7 @@ import Alamofire
 
 class ViewController: UIViewController {
     
-    var meetupsInCurrentLocation = []
+    var meetupsInCurrentLocation:[EventPlace] = []
     var dataStore:LocationStore!
     
     var latitude:Double!
@@ -59,22 +59,25 @@ class ViewController: UIViewController {
         mapView.camera = GMSCameraPosition(target: self.location.coordinate , zoom: 15.0, bearing: 0, viewingAngle: 0)
         
         self.getMeetupInfo(forCurrentLocation: location) { (response) in
-            self.meetupsInCurrentLocation = response
-            print(self.meetupsInCurrentLocation)
+            
+            for dict in response {
+                self.meetupsInCurrentLocation.append(EventPlace(dictionary: dict))
+            }
+            
+            print("RESULTS: \(self.meetupsInCurrentLocation)")
         }
         
     }
     
-    func getMeetupInfo(forCurrentLocation location:CLLocation, completion:([[String:String]]) -> Void) -> Void {
+    func getMeetupInfo(forCurrentLocation location:CLLocation, completion:([[String:AnyObject]]) -> Void) -> Void {
         
         let urlString = "\(meetupsAPIBaseURL)?key=\(meetupAPIKey)&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&category=34&sign=true"
         
         Alamofire.request(.GET, urlString)
             .responseJSON { response in
-                
                 if let JSON = response.result.value {
-                    print("JSON results: \(JSON["results"])")
-                    
+                    let results = JSON["results"] as! [[String:AnyObject]]
+                    completion(results)
                 }
         }
         
