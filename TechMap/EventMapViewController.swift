@@ -49,7 +49,7 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         coverView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
         
         let label = UILabel()
-        label.text = "Please hold while we find Tech Meetups by you..."
+        label.text = "Please hold while we find tech meetups by you..."
         label.backgroundColor = UIColor.clearColor()
         label.textColor = UIColor.blackColor()
         label.font = UIFont.init(name: "Avenir", size: 45.0)
@@ -79,8 +79,9 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         meetupsInCurrentLocation = []
         mapView.clear()
         
-        print(meetupsInCurrentLocation)
-        
+        view.addSubview(coverView!)
+        view.bringSubviewToFront(coverView)
+
         dataStore = LocationStore()
         dataStore.getLocation()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EventMapViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
