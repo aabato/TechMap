@@ -48,7 +48,7 @@ class EventTableViewController: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = storyboard.instantiateViewControllerWithIdentifier("eventDetailVC") as! EventDetailsViewController
         detailVC.event = event
-        detailVC.modalPresentationStyle = .OverCurrentContext
+
         self.presentViewController(detailVC, animated: true, completion: nil)
         
         

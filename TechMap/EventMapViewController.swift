@@ -13,6 +13,8 @@ import Alamofire
 
 class EventMapViewController: UIViewController, GMSMapViewDelegate {
     
+    
+    
     var meetupsInCurrentLocation:[EventPlace] = []
     var dataStore:LocationStore!
     

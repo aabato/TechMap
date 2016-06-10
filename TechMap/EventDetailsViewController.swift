@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import QuartzCore
 
 class EventDetailsViewController: UIViewController {
     
@@ -25,17 +26,13 @@ class EventDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         print("1")
-        mapView = GMSMapView()
-        
+//        mapView = GMSMapView()
 //        mapView.animateToLocation(event.coordinate)
-        let eventLoc = GMSCameraPosition.cameraWithLatitude(event.coordinate.latitude, longitude: event.coordinate.longitude, zoom: 5)
-        mapView.camera = eventLoc
+//        let marker = Placemarker(place: event)
+//        marker.position = event.coordinate
+//        marker.map = mapView
         
-        let marker = Placemarker(place: event)
-        marker.position = event.coordinate
-        marker.map = mapView
-
-        
+    
         nameLabel.text = event.name
         groupLabel.text = "Hosted by: \(event.groupName)"
         dateLabel.text = event.time
