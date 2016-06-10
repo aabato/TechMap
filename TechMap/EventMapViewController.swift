@@ -46,7 +46,7 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.delegate = self
         
         coverView = UIView.init(frame: view.frame)
-        coverView!.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        coverView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
         
         let label = UILabel()
         label.text = "Please hold while we find Tech Meetups by you..."
