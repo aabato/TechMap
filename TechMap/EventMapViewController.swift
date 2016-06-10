@@ -61,7 +61,6 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         label.textAlignment = .Center
         label.numberOfLines = 0
         
-        
         coverView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.widthAnchor.constraintEqualToAnchor(coverView.widthAnchor, multiplier: 0.75).active = true
@@ -91,7 +90,10 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     //MARK: Location Services Delegate
     
     func getLocation() {
-        if (CLLocationManager.locationServicesEnabled()) {
+        let locationServiceOn = CLLocationManager.locationServicesEnabled()
+        let appHasLaunchedMoreThanOnce = NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedMoreThanOnce")
+        
+        if locationServiceOn {
             print("Location Services enabled.")
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             locationManager.delegate = self
@@ -101,24 +103,29 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
             }
             locationManager.startUpdatingLocation()
         }
-//        else {
-//            let alert = UIAlertController.init(title: "Location Services needed!", message: "Please turn on location services so we can find your current location", preferredStyle: .Alert)
-//            let settings = UIAlertAction.init(title: "Open Settings", style: .Default, handler: { (action) in
-//                if let url = NSURL(string:"prefs:root=LOCATION_SERVICES_Systemservices") {
-//                    UIApplication.sharedApplication().openURL(url)
-//                }
-//            })
-//            let cancel = UIAlertAction.init(title: "Cancel", style: .Cancel, handler: nil)
-//            alert.addAction(settings)
-//            alert.addAction(cancel)
-//            
-//            self.presentViewController(alert, animated: true, completion: nil)
-//        }
+        else if appHasLaunchedMoreThanOnce{
+            let alert = UIAlertController.init(title: "Location Services needed!", message: "Please turn on location services so we can find your current location", preferredStyle: .Alert)
+            let settings = UIAlertAction.init(title: "Open Settings", style: .Default, handler: { (action) in
+                if let url = NSURL(string:"prefs:root=LOCATION_SERVICES_Systemservices") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            })
+            let cancel = UIAlertAction.init(title: "Cancel", style: .Cancel, handler: nil)
+            
+            alert.addAction(settings)
+            alert.addAction(cancel)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
-//        let alert = UIAlertController(title: "Oh no!", message: "Please turn on location services to use this application.", preferredStyle: .Alert)
+        let alert = UIAlertController.init(title: "Uh Oh!", message: "We couldn't get your location. Please try again.", preferredStyle: .Alert)
+        let ok = UIAlertAction.init(title: "OK", style: .Default, handler: nil)
+        alert.addAction(ok)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

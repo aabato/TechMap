@@ -33,6 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey(googleMapsAPIKey)
         
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        else if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedMoreThanOnce") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedMoreThanOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
         return true
     }
 

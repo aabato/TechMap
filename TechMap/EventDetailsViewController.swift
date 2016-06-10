@@ -37,10 +37,6 @@ class EventDetailsViewController: UIViewController {
         descriptionTextView.text = event.description
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBAction func getFullDetailsButtonTapped(sender: AnyObject) {
         var url : NSURL
