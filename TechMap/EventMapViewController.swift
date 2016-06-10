@@ -47,11 +47,20 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EventMapViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func refreshButtonTapped(sender: AnyObject) {
+        
+        meetupsInCurrentLocation = []
+        mapView.clear()
+        
+        print(meetupsInCurrentLocation)
+        
+        dataStore = LocationStore()
+        dataStore.getLocation()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EventMapViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
+        
     }
+    
     
     func updateLocationInfo() {
         latitude = self.dataStore.latitude
@@ -75,7 +84,7 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
     
     func getMeetupInfo(forCurrentLocation location:CLLocation, completion:([[String:AnyObject]]) -> Void) -> Void {
         
-        let urlString = "\(meetupsAPIBaseURL)?key=\(meetupAPIKey)&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&radius=2&category=34&sign=true"
+        let urlString = "\(meetupsAPIBaseURL)?key=\(meetupAPIKey)&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&radius=2&category=34&status=upcoming&sign=true"
         
         Alamofire.request(.GET, urlString)
             .responseJSON { response in

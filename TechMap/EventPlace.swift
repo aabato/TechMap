@@ -40,10 +40,10 @@ class EventPlace {
         city = json["venue"]["city"].stringValue
         state = json["venue"]["state"].stringValue
         
-        let time_temp = json["time"].doubleValue
+        let time_temp = json["time"].doubleValue/1000.0
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
         dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .MediumStyle
         let date = NSDate(timeIntervalSince1970: time_temp)
         time = dateFormatter.stringFromDate(date)
     
