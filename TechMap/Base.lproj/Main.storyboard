@@ -3,8 +3,127 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Event Details View Controller-->
+        <scene sceneID="Umj-WG-qXv">
+            <objects>
+                <viewController restorationIdentifier="eventDetailVC" storyboardIdentifier="eventDetailVC" id="bdt-02-Ivg" customClass="EventDetailsViewController" customModule="TechMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H2n-jO-1gi"/>
+                        <viewControllerLayoutGuide type="bottom" id="18E-uF-4Bj"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" id="oWJ-dU-GCE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKA-Zc-Fc6">
+                                <rect key="frame" x="60" y="55" width="480" height="60"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKk-kJ-DwC">
+                                <rect key="frame" x="60" y="115" width="240" height="60"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oq-Bv-pNu" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="189" width="600" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Do-Na-OvV">
+                                <rect key="frame" x="0.0" y="315" width="600" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="JLR-UU-oPn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Q4-8v-Ewg" userLabel="Description">
+                                <rect key="frame" x="60" y="347" width="480" height="198"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nc-Ni-7iq">
+                                <rect key="frame" x="150" y="542" width="300" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Get full details"/>
+                                <connections>
+                                    <action selector="getFullDetailsButtonTapped:" destination="bdt-02-Ivg" eventType="touchUpInside" id="zKx-37-F2y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgB-3E-q8g">
+                                <rect key="frame" x="300" y="115" width="240" height="60"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ge4-SG-8zK">
+                                <rect key="frame" x="550" y="25" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ge4-SG-8zK" secondAttribute="height" multiplier="1:1" id="L1c-Aq-qJR"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="bdt-02-Ivg" eventType="touchUpInside" id="0DF-Mf-0GI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4oq-Bv-pNu" firstAttribute="height" secondItem="oWJ-dU-GCE" secondAttribute="height" multiplier="0.25" id="126-SP-QAr"/>
+                            <constraint firstItem="1nc-Ni-7iq" firstAttribute="width" secondItem="oWJ-dU-GCE" secondAttribute="width" multiplier="0.5" id="32K-T0-Eaa"/>
+                            <constraint firstItem="JKA-Zc-Fc6" firstAttribute="width" secondItem="oWJ-dU-GCE" secondAttribute="width" multiplier="0.8" id="5uO-ry-kRO"/>
+                            <constraint firstItem="JKA-Zc-Fc6" firstAttribute="top" secondItem="H2n-jO-1gi" secondAttribute="bottom" constant="35" id="6b4-iR-9gX"/>
+                            <constraint firstItem="tKk-kJ-DwC" firstAttribute="width" secondItem="JKA-Zc-Fc6" secondAttribute="width" multiplier="0.5" id="8qY-I1-zBq"/>
+                            <constraint firstItem="1Do-Na-OvV" firstAttribute="width" secondItem="4oq-Bv-pNu" secondAttribute="width" id="94s-3G-EbL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ge4-SG-8zK" secondAttribute="trailing" id="9Un-yn-4eI"/>
+                            <constraint firstItem="tKk-kJ-DwC" firstAttribute="top" secondItem="JKA-Zc-Fc6" secondAttribute="bottom" id="BIe-fu-rLk"/>
+                            <constraint firstItem="4oq-Bv-pNu" firstAttribute="leading" secondItem="oWJ-dU-GCE" secondAttribute="leading" id="HA9-vk-as7"/>
+                            <constraint firstItem="ge4-SG-8zK" firstAttribute="bottom" secondItem="JKA-Zc-Fc6" secondAttribute="top" id="INi-wc-Pnd"/>
+                            <constraint firstItem="EgB-3E-q8g" firstAttribute="width" secondItem="JKA-Zc-Fc6" secondAttribute="width" multiplier="0.5" id="Jaj-mI-dP0"/>
+                            <constraint firstItem="EgB-3E-q8g" firstAttribute="top" secondItem="JKA-Zc-Fc6" secondAttribute="bottom" id="JfC-lL-SxP"/>
+                            <constraint firstItem="JKA-Zc-Fc6" firstAttribute="centerX" secondItem="oWJ-dU-GCE" secondAttribute="centerX" id="QlH-VK-eGk"/>
+                            <constraint firstItem="5Q4-8v-Ewg" firstAttribute="width" secondItem="JKA-Zc-Fc6" secondAttribute="width" id="SlE-IF-hgD"/>
+                            <constraint firstItem="4oq-Bv-pNu" firstAttribute="width" secondItem="oWJ-dU-GCE" secondAttribute="width" id="ZwJ-cX-jVI"/>
+                            <constraint firstItem="1nc-Ni-7iq" firstAttribute="centerX" secondItem="oWJ-dU-GCE" secondAttribute="centerX" id="atx-H1-mEj"/>
+                            <constraint firstItem="5Q4-8v-Ewg" firstAttribute="height" secondItem="oWJ-dU-GCE" secondAttribute="height" multiplier="0.33" id="ccl-9u-yXm"/>
+                            <constraint firstItem="EgB-3E-q8g" firstAttribute="height" secondItem="tKk-kJ-DwC" secondAttribute="height" id="cen-H0-2tP"/>
+                            <constraint firstItem="1Do-Na-OvV" firstAttribute="centerX" secondItem="4oq-Bv-pNu" secondAttribute="centerX" id="fwo-pw-fne"/>
+                            <constraint firstItem="5Q4-8v-Ewg" firstAttribute="centerX" secondItem="JKA-Zc-Fc6" secondAttribute="centerX" id="g5C-qa-9W4"/>
+                            <constraint firstItem="EgB-3E-q8g" firstAttribute="trailing" secondItem="JKA-Zc-Fc6" secondAttribute="trailing" id="mVV-WS-sLe"/>
+                            <constraint firstItem="ge4-SG-8zK" firstAttribute="height" secondItem="JKA-Zc-Fc6" secondAttribute="height" multiplier="0.5" id="mjA-bf-i04"/>
+                            <constraint firstItem="tKk-kJ-DwC" firstAttribute="height" secondItem="JKA-Zc-Fc6" secondAttribute="height" id="oP6-bX-Bhb"/>
+                            <constraint firstItem="1Do-Na-OvV" firstAttribute="bottom" secondItem="4oq-Bv-pNu" secondAttribute="bottom" id="obM-df-a4O"/>
+                            <constraint firstItem="5Q4-8v-Ewg" firstAttribute="top" secondItem="4oq-Bv-pNu" secondAttribute="bottom" constant="8" id="qdV-oI-hKf"/>
+                            <constraint firstItem="4oq-Bv-pNu" firstAttribute="top" secondItem="tKk-kJ-DwC" secondAttribute="bottom" constant="14" id="tvq-WG-0kL"/>
+                            <constraint firstItem="18E-uF-4Bj" firstAttribute="top" secondItem="1nc-Ni-7iq" secondAttribute="bottom" constant="25" id="v8q-0V-HHk"/>
+                            <constraint firstItem="tKk-kJ-DwC" firstAttribute="leading" secondItem="JKA-Zc-Fc6" secondAttribute="leading" id="vWc-CV-UFX"/>
+                            <constraint firstItem="JKA-Zc-Fc6" firstAttribute="height" secondItem="oWJ-dU-GCE" secondAttribute="height" multiplier="0.1" id="xiu-9S-nxN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="1Do-Na-OvV" id="JzH-rI-ybA"/>
+                        <outlet property="dateLabel" destination="EgB-3E-q8g" id="yxP-J5-tFV"/>
+                        <outlet property="descriptionTextView" destination="5Q4-8v-Ewg" id="uhI-ht-xpP"/>
+                        <outlet property="groupLabel" destination="tKk-kJ-DwC" id="wjM-eT-MTw"/>
+                        <outlet property="mapView" destination="4oq-Bv-pNu" id="kec-bS-FrZ"/>
+                        <outlet property="nameLabel" destination="JKA-Zc-Fc6" id="bGU-pI-Uyu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pc5-xL-QOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469" y="-205"/>
+        </scene>
         <!--Event Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -98,4 +217,7 @@
             <point key="canvasLocation" x="422" y="464"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="512" height="512"/>
+    </resources>
 </document>

@@ -125,6 +125,16 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         return true
     }
     
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        let placemarker = marker as! Placemarker
+        let event:EventPlace! = placemarker.eventplace
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = storyboard.instantiateViewControllerWithIdentifier("eventDetailVC") as! EventDetailsViewController
+        detailVC.event = event
+        
+        self.presentViewController(detailVC, animated: true, completion: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destVC = segue.destinationViewController as! EventTableViewController
         destVC.events = self.meetupsInCurrentLocation

@@ -20,6 +20,8 @@
 		BD7920D41D08F494006B4020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7920D31D08F494006B4020 /* Assets.xcassets */; };
 		BD7920D71D08F494006B4020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7920D51D08F494006B4020 /* LaunchScreen.storyboard */; };
 		BD7920E01D08F824006B4020 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7920DF1D08F824006B4020 /* Keys.plist */; };
+		BD9CA2B91D0AED2C001C9DC2 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CA2B81D0AED2C001C9DC2 /* EventDetailsViewController.swift */; };
+		BD9CA2BB1D0AFD54001C9DC2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9CA2BA1D0AFD54001C9DC2 /* MapKit.framework */; };
 		BDDFED171D0A108000CBF5D3 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDFED161D0A108000CBF5D3 /* EventTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		BD7920D61D08F494006B4020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD7920D81D08F494006B4020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD7920DF1D08F824006B4020 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		BD9CA2B81D0AED2C001C9DC2 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		BD9CA2BA1D0AFD54001C9DC2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BDB777121D098B640085E853 /* TechMap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TechMap-Bridging-Header.h"; sourceTree = "<group>"; };
 		BDDFED161D0A108000CBF5D3 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		FB98989194433C3331C8A603 /* Pods-TechMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-TechMap/Pods-TechMap.release.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD9CA2BB1D0AFD54001C9DC2 /* MapKit.framework in Frameworks */,
 				64E2C50ABE3C0508A3627DFC /* Pods_TechMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +65,7 @@
 		5B7263D6CBFCC401CB6A15E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD9CA2BA1D0AFD54001C9DC2 /* MapKit.framework */,
 				B23A1C7E292E42700C726CA9 /* Pods_TechMap.framework */,
 			);
 			name = Frameworks;
@@ -123,6 +129,7 @@
 			children = (
 				BD7920CE1D08F494006B4020 /* EventMapViewController.swift */,
 				BDDFED161D0A108000CBF5D3 /* EventTableViewController.swift */,
+				BD9CA2B81D0AED2C001C9DC2 /* EventDetailsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -181,6 +188,11 @@
 				TargetAttributes = {
 					BD7920C81D08F494006B4020 = {
 						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -276,6 +288,7 @@
 				BD7920CF1D08F494006B4020 /* EventMapViewController.swift in Sources */,
 				BD4B95131D09FAE50019B9F4 /* Placemarker.swift in Sources */,
 				BD4B7C411D09FDA9006AF3C4 /* UIViewExtension.swift in Sources */,
+				BD9CA2B91D0AED2C001C9DC2 /* EventDetailsViewController.swift in Sources */,
 				BD4B95071D09DBE60019B9F4 /* EventPlace.swift in Sources */,
 				BD7920CD1D08F494006B4020 /* AppDelegate.swift in Sources */,
 			);

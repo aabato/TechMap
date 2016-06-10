@@ -26,24 +26,26 @@ class EventPlace {
     init(dictionary:[String : AnyObject])
     {
         let json = JSON(dictionary)
+        
         name = json["name"].stringValue
         groupName = json["group"]["name"].stringValue
+        eventURL = json["event_url"].stringValue
+        venueAddress = json["venue"]["address_1"].stringValue
+        city = json["venue"]["city"].stringValue
+        state = json["venue"]["state"].stringValue
+        
+        let description_temp = json["description"].stringValue
+        description = description_temp.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
         
         var coordinate_temp = CLLocationCoordinate2D()
         coordinate_temp.latitude = json["venue"]["lat"].doubleValue
         coordinate_temp.longitude = json["venue"]["lon"].doubleValue
         coordinate = coordinate_temp
         
-        description = json["description"].stringValue
-        eventURL = json["event_url"].stringValue
-        venueAddress = json["venue"]["address_1"].stringValue
-        city = json["venue"]["city"].stringValue
-        state = json["venue"]["state"].stringValue
-        
         let time_temp = json["time"].doubleValue/1000.0
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .MediumStyle
+        dateFormatter.timeStyle = .ShortStyle
         let date = NSDate(timeIntervalSince1970: time_temp)
         time = dateFormatter.stringFromDate(date)
     
