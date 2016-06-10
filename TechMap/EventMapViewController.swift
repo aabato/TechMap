@@ -28,7 +28,9 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
     
     // MARK: View Preparation
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         mapView=GMSMapView()
         view.addSubview(mapView)
         
@@ -42,19 +44,27 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.settings.myLocationButton = true
         
         mapView.delegate = self
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        coverView = UIView.init(frame: UIScreen.mainScreen().bounds)
-        coverView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        coverView = UIView.init(frame: view.frame)
+        coverView!.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         
-        let spinner = UIActivityIndicatorView()
-        coverView.addSubview(spinner)
-        spinner.startAnimating()
+        let label = UILabel()
+        label.text = "Please hold while we find Tech Meetups by you..."
+        label.backgroundColor = UIColor.clearColor()
+        label.textColor = UIColor.blackColor()
+        label.font = UIFont.init(name: "Avenir", size: 45.0)
+        label.textAlignment = .Center
+        label.numberOfLines = 0
         
-        view.addSubview(coverView)
+        
+        coverView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.widthAnchor.constraintEqualToAnchor(coverView.widthAnchor, multiplier: 0.75).active = true
+        label.heightAnchor.constraintEqualToAnchor(coverView.heightAnchor, multiplier: 0.5).active = true
+        label.centerXAnchor.constraintEqualToAnchor(coverView.centerXAnchor).active = true
+        label.centerYAnchor.constraintEqualToAnchor(coverView.centerYAnchor).active = true
+        
+        view.addSubview(coverView!)
         view.bringSubviewToFront(coverView)
         
         dataStore = LocationStore()
@@ -95,6 +105,7 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ 
                 self.updateMap()
+                self.coverView?.removeFromSuperview()
             })
         }
     }
