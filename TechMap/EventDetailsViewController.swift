@@ -25,14 +25,11 @@ class EventDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("1")
-//        mapView = GMSMapView()
-//        mapView.animateToLocation(event.coordinate)
-//        let marker = Placemarker(place: event)
-//        marker.position = event.coordinate
-//        marker.map = mapView
+        mapView.camera = GMSCameraPosition(target: event.coordinate , zoom: 15.0, bearing: 0, viewingAngle: 0)
+        let marker = GMSMarker()
+        marker.position = event.coordinate
+        marker.map = mapView
         
-    
         nameLabel.text = event.name
         groupLabel.text = "Hosted by: \(event.groupName)"
         dateLabel.text = event.time
