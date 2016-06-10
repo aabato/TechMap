@@ -13,10 +13,11 @@ import Alamofire
 
 class EventMapViewController: UIViewController, GMSMapViewDelegate {
     
-    
+    //MARK: Properties
     
     var meetupsInCurrentLocation:[EventPlace] = []
     var dataStore:LocationStore!
+    var coverView:UIView!
     
     var latitude:Double!
     var longitude:Double!
@@ -25,12 +26,11 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
     var mapView: GMSMapView!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    // MARK: View Preparation
+    
+    override func viewWillAppear(animated: Bool) {
         mapView=GMSMapView()
         view.addSubview(mapView)
-        
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
@@ -41,10 +41,24 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
         
+        mapView.delegate = self
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        coverView = UIView.init(frame: UIScreen.mainScreen().bounds)
+        coverView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        
+        let spinner = UIActivityIndicatorView()
+        coverView.addSubview(spinner)
+        spinner.startAnimating()
+        
+        view.addSubview(coverView)
+        view.bringSubviewToFront(coverView)
+        
         dataStore = LocationStore()
         dataStore.getLocation()
-        
-        mapView.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EventMapViewController.updateLocationInfo), name: "locationInfoComplete", object: nil)
         
@@ -63,6 +77,7 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         
     }
     
+    //MARK: Data Update
     
     func updateLocationInfo() {
         latitude = self.dataStore.latitude
@@ -107,6 +122,8 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         
     }
     
+    //MARK: Map Delegate Methods
+    
     func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         print("Calling delegate method now")
         let placemarker = marker as! Placemarker
@@ -136,6 +153,8 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate {
         
         self.presentViewController(detailVC, animated: true, completion: nil)
     }
+    
+    //MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destVC = segue.destinationViewController as! EventTableViewController
