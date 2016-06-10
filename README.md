@@ -6,6 +6,5 @@
 
 ## To Run
 
-There are a couple of things to have this project run on your machine. \n
 1. The Pods folder was not pushed to the github repository. Please run `pod install` before opening the project.
 2. I did not include API keys. Please gather that yourself and place it in a property list file named `Keys.plist`
