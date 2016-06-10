@@ -101,19 +101,19 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
             }
             locationManager.startUpdatingLocation()
         }
-        else {
-            let alert = UIAlertController.init(title: "Location Services needed!", message: "Please turn on location services so we can find your current location", preferredStyle: .Alert)
-            let settings = UIAlertAction.init(title: "Open Settings", style: .Default, handler: { (action) in
-                if let url = NSURL(string:"prefs:root=LOCATION_SERVICES_Systemservices") {
-                    UIApplication.sharedApplication().openURL(url)
-                }
-            })
-            let cancel = UIAlertAction.init(title: "Cancel", style: .Cancel, handler: nil)
-            alert.addAction(settings)
-            alert.addAction(cancel)
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+//        else {
+//            let alert = UIAlertController.init(title: "Location Services needed!", message: "Please turn on location services so we can find your current location", preferredStyle: .Alert)
+//            let settings = UIAlertAction.init(title: "Open Settings", style: .Default, handler: { (action) in
+//                if let url = NSURL(string:"prefs:root=LOCATION_SERVICES_Systemservices") {
+//                    UIApplication.sharedApplication().openURL(url)
+//                }
+//            })
+//            let cancel = UIAlertAction.init(title: "Cancel", style: .Cancel, handler: nil)
+//            alert.addAction(settings)
+//            alert.addAction(cancel)
+//            
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -137,6 +137,7 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         switch status {
         case .NotDetermined:
             print("User still thinking...")
+            self.locationManager.requestWhenInUseAuthorization()
             break
         case .Denied:
             print("User hates you")
