@@ -51,25 +51,36 @@ class EventMapViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         mapView.delegate = self
         
         coverView = UIView.init(frame: view.frame)
-        coverView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+        coverView!.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.6)
+        
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         
         let label = UILabel()
         label.text = "Please hold while we find tech meetups by you..."
         label.backgroundColor = UIColor.clearColor()
         label.textColor = UIColor.blackColor()
-        label.font = UIFont.init(name: "Avenir", size: 45.0)
+        label.font = UIFont.init(name: "Avenir", size: 24.0)
         label.textAlignment = .Center
         label.numberOfLines = 0
         
         coverView.addSubview(label)
+        coverView.addSubview(spinner)
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.widthAnchor.constraintEqualToAnchor(coverView.widthAnchor, multiplier: 0.5).active = true
+        spinner.heightAnchor.constraintEqualToAnchor(spinner.widthAnchor, multiplier: 1).active = true
+        spinner.centerXAnchor.constraintEqualToAnchor(coverView.centerXAnchor).active = true
+        spinner.centerYAnchor.constraintEqualToAnchor(coverView.centerYAnchor).active = true
+        
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.widthAnchor.constraintEqualToAnchor(coverView.widthAnchor, multiplier: 0.75).active = true
-        label.heightAnchor.constraintEqualToAnchor(coverView.heightAnchor, multiplier: 0.5).active = true
+        label.widthAnchor.constraintEqualToAnchor(coverView.widthAnchor, multiplier: 0.8).active = true
+        label.heightAnchor.constraintEqualToAnchor(coverView.heightAnchor, multiplier: 0.3).active = true
         label.centerXAnchor.constraintEqualToAnchor(coverView.centerXAnchor).active = true
-        label.centerYAnchor.constraintEqualToAnchor(coverView.centerYAnchor).active = true
+        label.bottomAnchor.constraintEqualToAnchor(spinner.topAnchor).active = true
         
         view.addSubview(coverView!)
         view.bringSubviewToFront(coverView)
+        spinner.startAnimating()
         
         getLocation()
         
